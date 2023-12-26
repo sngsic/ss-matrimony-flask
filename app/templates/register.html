@@ -1,15 +1,15 @@
-{%extends "base.html" %}
+{% extends "base.html" %}
 
 {% block content%}
-    {% with form = form.login%}
-    <h1>Sign-In</h1>
+    {% with form = form.signup %}
+    <h1>Sign-Up</h1>
     <hr />
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
 
         <p>
             {{ form.username.label}} <br />
-            {{ form.username(size=32, class="class-name-here")}}  <!--======================================-->
+            {{ form.username(size=32)}}
             {% for error in form.username.errors %}
                 <br/><span style="color: red;" class="error">{{ error }}</span>
             {% endfor %}
@@ -23,7 +23,6 @@
             {% endfor %}
         </p>
 
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
         <p> {{form.submit() }}</p>
     </form>
     {% endwith %}
